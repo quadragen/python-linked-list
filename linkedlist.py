@@ -58,9 +58,17 @@ class LinkedList:
         elif (curr_a == curr_b) and (curr_a.data != data and curr_b.data != data):
             return None
 
-    # def remove(self, item):
-    #     if type(item) is Node:
-
+    def remove(self, item):
+        if type(item) is Node:
+            if item is self.head:
+                item.next.prev = None
+                self.head = item.next
+            elif item is self.tail:
+                item.prev.next = None
+                self.tail = item.prev
+            else:
+                item.next.prev = item.prev
+                item.prev.next = item.next
 
 if __name__ == '__main__':
     test_list = LinkedList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'a'])

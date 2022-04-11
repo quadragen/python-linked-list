@@ -1,4 +1,5 @@
 from node import Node
+from binarysearchtree import BinarySearchTree
 # import pdb
 
 class LinkedList:

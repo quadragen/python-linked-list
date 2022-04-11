@@ -1,0 +1,1 @@
+This linked list uses a binary search tree for faster searching.  To facilitate this, I am trying out a hybrid node type used for both the list and the tree.  Alternatively, a two-way linear search method is available.

@@ -1,4 +1,5 @@
-from random import triangular
+# import pdb
+# from node import Node
 
 
 class BinarySearchTree:
@@ -17,7 +18,7 @@ class BinarySearchTree:
                 curr_node = curr_node.left
             elif stack:
                 curr_node = stack.pop()
-                output_string += curr_node.data
+                output_string += str(curr_node) + " "
                 curr_node = curr_node.right
             else:
                 break
@@ -27,6 +28,9 @@ class BinarySearchTree:
         return self.root is None
 
     def iter_insert(self, node):
+        if self.root is None:
+            self.root = node
+            return self.root
         curr_node = self.root
         trailing_node = None
 
@@ -60,4 +64,12 @@ class BinarySearchTree:
             else:
                 return curr_node
     
-    
+if __name__ == '__main__':
+    test_tree = BinarySearchTree()
+    # test_tree.iter_insert(Node(41))
+    # test_tree.iter_insert(Node(7))
+    # test_tree.iter_insert(Node(33))
+    # test_tree.iter_insert(Node(23))
+    # test_tree.iter_insert(Node(79))
+    # print(test_tree)
+    # pdb.set_trace()

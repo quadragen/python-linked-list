@@ -7,6 +7,7 @@ class LinkedList:
         self.head = None
         self.tail = None
         self.length = 0
+        self.rectree = BinarySearchTree()
 
         if data:
             self.insert(data)

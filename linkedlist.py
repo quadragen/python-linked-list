@@ -67,19 +67,22 @@ class LinkedList:
             return None
 
     def remove(self, item):
-        if type(item) is Node:
-            if item is self.head:
-                item.next.prev = None
-                self.head = item.next
-                self.length -= 1
-            elif item is self.tail:
-                item.prev.next = None
-                self.tail = item.prev
-                self.length -= 1
-            else:
-                item.next.prev = item.prev
-                item.prev.next = item.next
-                self.length -= 1
+
+        if type(item) is not Node:
+            item = self.linear_search(item)
+
+        if item is self.head:
+            item.next.prev = None
+            self.head = item.next
+            self.length -= 1
+        elif item is self.tail:
+            item.prev.next = None
+            self.tail = item.prev
+            self.length -= 1
+        else:
+            item.next.prev = item.prev
+            item.prev.next = item.next
+            self.length -= 1
 
 if __name__ == '__main__':
     test_list = LinkedList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'a'])

@@ -7,7 +7,7 @@ class LinkedList:
         self.head = None
         self.tail = None
         self.length = 0
-        self.rectree = BinarySearchTree()
+        self.tree = BinarySearchTree()
 
         if data:
             self.insert(data)
@@ -28,17 +28,18 @@ class LinkedList:
     def insert(self, data):
 
         for item in data:
-
             new_node = Node(item)
 
             if self.tail is None:
                 self.head = new_node
                 self.tail = new_node
+                self.tree.iter_insert(new_node)
                 self.length += 1
             else:
                 new_node.prev = self.tail
                 new_node.prev.next = new_node
                 self.tail = new_node
+                self.tree.iter_insert(new_node)
                 self.length += 1
 
     def append(self, data):
@@ -49,11 +50,13 @@ class LinkedList:
             if self.head is None:
                 self.head = new_node
                 self.tail = new_node
+                self.tree.iter_insert(new_node)
                 self.length += 1
             else:
                 new_node.next = self.head
                 new_node.next.prev = new_node
                 self.head = new_node
+                self.tree.iter_insert(new_node)
                 self.length += 1
 
     def linear_search(self, data):

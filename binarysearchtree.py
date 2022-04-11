@@ -50,7 +50,7 @@ class BinarySearchTree:
             self.node_count += 1
         return trailing_node
 
-    def bst_iter_search(self, data):
+    def iter_search(self, data):
         curr_node = self.root
         while curr_node:
             if data < curr_node.data:

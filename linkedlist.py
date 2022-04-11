@@ -8,8 +8,7 @@ class LinkedList:
         self.length = 0
 
         if data:
-            for item in data:
-                self.insert(item)
+            self.insert(data)
 
     def __repr__(self):
         output_string = ""
@@ -22,26 +21,31 @@ class LinkedList:
         return output_string
 
     def insert(self, data):
-        new_node = Node(data)
 
-        if self.tail is None:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            new_node.prev = self.tail
-            new_node.prev.next = new_node
-            self.tail = new_node
+        for item in data:
+
+            new_node = Node(item)
+
+            if self.tail is None:
+                self.head = new_node
+                self.tail = new_node
+            else:
+                new_node.prev = self.tail
+                new_node.prev.next = new_node
+                self.tail = new_node
 
     def append(self, data):
-        new_node = Node(data)
 
-        if self.head is None:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            new_node.next = self.head
-            new_node.next.prev = new_node
-            self.head = new_node
+        for item in data:
+            new_node = Node(item)
+
+            if self.head is None:
+                self.head = new_node
+                self.tail = new_node
+            else:
+                new_node.next = self.head
+                new_node.next.prev = new_node
+                self.head = new_node
 
     def linear_search(self, data):
         curr_a = self.head

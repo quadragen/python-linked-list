@@ -57,18 +57,18 @@ class LinkedList:
                 self.length += 1
 
     def linear_search(self, data):
-        curr_a = self.head
-        curr_b = self.tail
+        curr_node_a = self.head
+        curr_node_b = self.tail
 
-        while (curr_a.data != data and curr_b.data != data) and (curr_a != curr_b):
-            curr_a = curr_a.next
-            curr_b = curr_b.prev
+        while (curr_node_a.data != data and curr_node_b.data != data) and (curr_node_a != curr_node_b):
+            curr_node_a = curr_node_a.next
+            curr_node_b = curr_node_b.prev
 
-        if curr_a.data == data:
-            return curr_a
-        elif curr_b.data == data:
-            return curr_b
-        elif (curr_a == curr_b) and (curr_a.data != data and curr_b.data != data):
+        if curr_node_a.data == data:
+            return curr_node_a
+        elif curr_node_b.data == data:
+            return curr_node_b
+        elif (curr_node_a == curr_node_b) and (curr_node_a.data != data and curr_node_b.data != data):
             return None
 
     def remove(self, item):

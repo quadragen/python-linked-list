@@ -93,6 +93,10 @@ class LinkedList:
             self.length -= 1
 
 if __name__ == '__main__':
-    test_list = LinkedList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'a'])
+    test_list = LinkedList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     # pdb.set_trace()
+    print(test_list)
+    print(test_list.tree)
+    test_list.remove(test_list.tree.iter_search(5))
+    test_list.remove(test_list.linear_search(9))
     print(test_list)

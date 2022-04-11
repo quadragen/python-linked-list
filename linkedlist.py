@@ -20,6 +20,9 @@ class LinkedList:
         
         return output_string
 
+    def is_empty(self):
+        return self.head is None and self.tail is None
+
     def insert(self, data):
 
         for item in data:

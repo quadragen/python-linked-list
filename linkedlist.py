@@ -155,3 +155,8 @@ class LinkedList:
 
     def quick_search(self, data):
         return self.tree.iter_search(data)
+
+    def pop(self):
+        return_node = self.head
+        self.remove(self.head)
+        return return_node

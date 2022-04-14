@@ -25,7 +25,6 @@ class LinkedList:
         return self.head is None and self.tail is None
 
     def insert(self, data):
-
         for item in data:
             new_node = Node(item)
 
@@ -42,7 +41,6 @@ class LinkedList:
                 self.length += 1
 
     def append(self, data):
-
         for item in data:
             new_node = Node(item)
 
@@ -76,7 +74,6 @@ class LinkedList:
     def quick_search(self, data):
         return self.tree.iter_search(data)
 
-<<<<<<< HEAD
     def remove(self, items):
         for item in items:
             if type(item) is not Node:
@@ -97,25 +94,3 @@ class LinkedList:
                 item.prev.next = item.next
                 self.tree.iter_remove(item)
                 self.length -= 1
-=======
-    def remove(self, item):
-
-        if type(item) is not Node:
-            item = self.quick_search(item)
-
-        if item is self.head:
-            item.next.prev = None
-            self.head = item.next
-            self.tree.iter_remove(item)
-            self.length -= 1
-        elif item is self.tail:
-            item.prev.next = None
-            self.tail = item.prev
-            self.tree.iter_remove(item)
-            self.length -= 1
-        else:
-            item.next.prev = item.prev
-            item.prev.next = item.next
-            self.tree.iter_remove(item)
-            self.length -= 1
->>>>>>> d5024c1 (cleanup)

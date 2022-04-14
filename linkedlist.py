@@ -160,3 +160,6 @@ class LinkedList:
         return_node = self.head
         self.remove(self.head)
         return return_node
+
+    def sorted(self):
+        return self.tree

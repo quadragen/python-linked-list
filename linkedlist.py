@@ -75,12 +75,12 @@ class LinkedList:
             return None
 
     def quick_search(self, data):
-        return self.tree.bst_iter_search(data)
+        return self.tree.iter_search(data)
 
     def remove(self, item):
 
         if type(item) is not Node:
-            item = self.linear_search(item)
+            item = self.quick_search(item)
 
         if item is self.head:
             item.next.prev = None

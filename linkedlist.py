@@ -1,6 +1,7 @@
 from typing import List
 from node import Node
 from binarysearchtree import BinarySearchTree
+import pdb
 
 class LinkedList:
     def __init__(self, data=None):
@@ -71,6 +72,7 @@ class LinkedList:
         return self.head is None and self.tail is None
 
     def insert(self, data):
+        pdb.set_trace()
         if type(data) is int or type(data) is str:
             new_node = Node(data)
             self._insert(new_node)
@@ -79,6 +81,7 @@ class LinkedList:
             self._insert(data)
 
         elif type(data) is List:
+            pdb.set_trace()
             for item in data:
                 if type(item) is Node:
                     self._insert(item)

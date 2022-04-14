@@ -1,4 +1,3 @@
-import pdb
 from node import Node
 
 
@@ -122,13 +121,3 @@ class BinarySearchTree:
             self.node_count -= 1
 
         return self.root
-
-if __name__ == '__main__':
-    test_tree = BinarySearchTree()
-    test_tree.iter_insert(Node(41))
-    test_tree.iter_insert(Node(7))
-    test_tree.iter_insert(Node(33))
-    test_tree.iter_insert(Node(23))
-    test_tree.iter_insert(Node(79))
-    print(test_tree)
-    pdb.set_trace()

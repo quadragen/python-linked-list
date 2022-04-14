@@ -1,4 +1,3 @@
-from typing import List
 from node import Node
 from binarysearchtree import BinarySearchTree
 
@@ -78,7 +77,7 @@ class LinkedList:
         elif type(data) is Node:
             self._insert(data)
 
-        elif type(data) is List:
+        elif type(data) is list:
             for item in data:
                 if type(item) is Node:
                     self._insert(item)
@@ -101,7 +100,7 @@ class LinkedList:
         elif type(data) is Node:
             self._append(data)
 
-        elif type(data) is List:
+        elif type(data) is list:
             for item in data:
                 if type(item) is Node:
                     self._append(item)
@@ -124,7 +123,7 @@ class LinkedList:
         elif type(data) is Node:
             self._remove(data)
 
-        elif type(data) is List:
+        elif type(data) is list:
             for item in data:
                 if type(item) is Node:
                     self._remove(item)

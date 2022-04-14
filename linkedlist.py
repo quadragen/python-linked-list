@@ -1,3 +1,4 @@
+from typing import List
 from node import Node
 from binarysearchtree import BinarySearchTree
 
@@ -21,42 +22,122 @@ class LinkedList:
         
         return output_string
 
+    def _insert(self, node):
+        if self.tail is None:
+            self.head = node
+            self.tail = node
+            self.tree.iter_insert(node)
+            self.length += 1
+        else:
+            node.prev = self.tail
+            node.prev.next = node
+            self.tail = node
+            self.tree.iter_insert(node)
+            self.length += 1
+
+    def _append(self, node):
+        if self.head is None:
+            self.head = node
+            self.tail = node
+            self.tree.iter_insert(node)
+            self.length += 1
+        else:
+            node.next = self.head
+            node.next.prev = node
+            self.head = node
+            self.tree.iter_insert(node)
+            self.length += 1
+
+    def _remove(self, node):
+        if node is self.head:
+            node.next.prev = None
+            self.head = node.next
+            self.tree.iter_remove(node)
+            self.length -= 1
+
+        elif node is self.tail:
+            node.prev.next = None
+            self.tail = node.prev
+            self.tree.iter_remove(node)
+            self.length -= 1
+
+        else:
+            node.next.prev = node.prev
+            node.prev.next = node.next
+            self.tree.iter_remove(node)
+            self.length -= 1
+
     def is_empty(self):
         return self.head is None and self.tail is None
 
     def insert(self, data):
+        if type(data) is int or type(data) is str:
+            new_node = Node(data)
+            self._insert(new_node)
 
-        for item in data:
-            new_node = Node(item)
+        elif type(data) is Node:
+            self._insert(data)
 
-            if self.tail is None:
-                self.head = new_node
-                self.tail = new_node
-                self.tree.iter_insert(new_node)
-                self.length += 1
-            else:
-                new_node.prev = self.tail
-                new_node.prev.next = new_node
-                self.tail = new_node
-                self.tree.iter_insert(new_node)
-                self.length += 1
+        elif type(data) is List:
+            for item in data:
+                if type(item) is Node:
+                    self._insert(item)
+
+                elif type(item) is int or type(item) is str:
+                    new_node = Node(item)
+                    self._insert(new_node)
+                
+                elif type(item) is None:
+                    continue
+
+        elif type(data) is None:
+            return None
 
     def append(self, data):
+        if type(data) is int or type(data) is str:
+            new_node = Node(data)
+            self._append(new_node)
 
-        for item in data:
-            new_node = Node(item)
+        elif type(data) is Node:
+            self._append(data)
 
-            if self.head is None:
-                self.head = new_node
-                self.tail = new_node
-                self.tree.iter_insert(new_node)
-                self.length += 1
-            else:
-                new_node.next = self.head
-                new_node.next.prev = new_node
-                self.head = new_node
-                self.tree.iter_insert(new_node)
-                self.length += 1
+        elif type(data) is List:
+            for item in data:
+                if type(item) is Node:
+                    self._append(item)
+
+                elif type(item) is int or type(item) is str:
+                    new_node = Node(item)
+                    self._append(new_node)
+
+                elif type(item) is None:
+                    continue
+
+        elif type(data) is None:
+            return None
+
+    def remove(self, data):
+        if type(data) is int or type(data) is str:
+            item = self.quick_search(data)
+            self._remove(item)
+        
+        elif type(data) is Node:
+            self._remove(data)
+
+        elif type(data) is List:
+            for item in data:
+                if type(item) is Node:
+                    self._remove(item)
+
+                elif type(item) is int or type(item) is str:
+                    item = self.quick_search(item)
+                    self._remove(item)
+
+                elif type(item) is None:
+                    continue
+
+        elif type(data) is None:
+            return None
 
     def linear_search(self, data):
         curr_node_a = self.head
@@ -75,24 +156,3 @@ class LinkedList:
 
     def quick_search(self, data):
         return self.tree.iter_search(data)
-
-    def remove(self, items):
-        for item in items:
-            if type(item) is not Node:
-                item = self.quick_search(item)
-
-            if item is self.head:
-                item.next.prev = None
-                self.head = item.next
-                self.tree.iter_remove(item)
-                self.length -= 1
-            elif item is self.tail:
-                item.prev.next = None
-                self.tail = item.prev
-                self.tree.iter_remove(item)
-                self.length -= 1
-            else:
-                item.next.prev = item.prev
-                item.prev.next = item.next
-                self.tree.iter_remove(item)
-                self.length -= 1

@@ -161,5 +161,10 @@ class LinkedList:
         self.remove(self.head)
         return return_node
 
+    def pop_back(self):
+        return_node = self.tail
+        self.remove(self.tail)
+        return return_node
+
     def sorted(self):
         return self.tree

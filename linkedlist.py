@@ -74,6 +74,9 @@ class LinkedList:
         elif (curr_node_a == curr_node_b) and (curr_node_a.data != data and curr_node_b.data != data):
             return None
 
+    def quick_search(self, data):
+        return self.tree.bst_iter_search(data)
+
     def remove(self, item):
 
         if type(item) is not Node:
@@ -82,14 +85,17 @@ class LinkedList:
         if item is self.head:
             item.next.prev = None
             self.head = item.next
+            self.tree.iter_remove(item)
             self.length -= 1
         elif item is self.tail:
             item.prev.next = None
             self.tail = item.prev
+            self.tree.iter_remove(item)
             self.length -= 1
         else:
             item.next.prev = item.prev
             item.prev.next = item.next
+            self.tree.iter_remove(item)
             self.length -= 1
 
 if __name__ == '__main__':

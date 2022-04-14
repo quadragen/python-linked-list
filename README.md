@@ -1,3 +1,24 @@
-An example linked list using a hybrid node type that can be a member of both the list itself and a binary search tree for improved search performance.  It also includes a two-way linear search method.
+An example linked list using a hybrid node type that functions as both a list node and a tree node.
 
-This list will be used as part of a graph adjacency matrix.
+
+Supports the following data types:
+
+- Integers
+- Strings
+- Lists of integers
+- Lists of strings
+
+Includes the following methods:
+
+- insert
+- append
+- remove
+- pop
+- pop_back
+- is_empty
+- linear_search (searches for data from head and tail simultaneously in linear time (n/2))
+- quick_search (search in logarithmic time using an embedded binary search tree)
+- sorted (display the binary search tree by in-order traversal)
+
+Using append() and pop(), the linked list can be used as a stack.  Using insert() and pop(), it can be used as a queue.  pop_back() enables deque functionality.
+
